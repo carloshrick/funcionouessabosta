@@ -1,0 +1,38 @@
+{
+  "expo": {
+    "name": "todo",
+    "slug": "todo",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/fundologin.png",
+    "scheme": "myapp",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/fundologin.png",
+      "resizeMode" : "contain",
+      "backgroundColor": "#FFFFFF"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/fundologin.png",
+        "backgroundColor": "#FFFFFF",
+        "permissions": ["WRITE_EXTERNAL_STORAGE"]
+      }
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/fundologin.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
