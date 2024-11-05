@@ -21,6 +21,8 @@ export default function NovoModelo() {
     const params = useLocalSearchParams();
     const [alertShown, setAlertShown] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
+    const [inputHeight, setInputHeight] = useState(200);
+
 
     useEffect(() => {
         // Inicializa o título e texto com os parâmetros se existirem
@@ -138,12 +140,21 @@ export default function NovoModelo() {
                         <Container>
                             {isEditing ? (
                                 <InputRedacao
-                                    placeholder="Escreva sua redação..."
-                                    multiline={true}
-                                    style={{ height: 200, borderWidth: 1, padding: 10, maxHeight: '100%' }}
-                                    onChangeText={handleTextChange}
-                                    value={texto}
-                                />
+                                   placeholder="Escreva sua redação..."
+                                multiline={true}
+                                style={{
+                                    borderWidth: 1,
+                                    padding: 10,
+                                    minHeight: 700,  
+                                    height: inputHeight > 200 ? inputHeight : 200, 
+                                    maxHeight: '100%', 
+                                }}
+                                onContentSizeChange={(event) =>
+                                    setInputHeight(event.nativeEvent.contentSize.height)
+                                }
+                                onChangeText={handleTextChange}
+                                value={texto}
+                            />
                             ) : (
                                 <Texto>{texto || 'Escreva sua redação...'}</Texto>
                             )}
